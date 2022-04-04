@@ -2,6 +2,7 @@ package jpabook.jpashop.service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import jpabook.jpashop.domain.Member;
@@ -9,6 +10,7 @@ import jpabook.jpashop.repository.MemberRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest
 @Transactional
 public class MemberServiceTest {
 
