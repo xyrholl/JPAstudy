@@ -18,7 +18,7 @@ public class MemberServiceTest {
     @Autowired MemberRepository memberRepository;
 
     @Test
-    void 회원가입() throws Exception {
+    void 회원가입() {
         //given
         Member member = new Member();
         member.setName("kim");
@@ -31,7 +31,7 @@ public class MemberServiceTest {
     }
 
     @Test
-    void 중복_회원_예외() throws Exception {
+    void 중복_회원_예외() {
         //given
         Member member1 = new Member();
         member1.setName("kim");
@@ -41,12 +41,11 @@ public class MemberServiceTest {
 
         //when
         memberService.join(member1);
-        // 예외가 발생해야한다
-
-        //then
         IllegalStateException thrown = assertThrows(IllegalStateException.class, () -> {
             memberService.join(member2);
         });
+
+        //then
         assertEquals("이미 존재하는 회원입니다.", thrown.getMessage());
     }
 
