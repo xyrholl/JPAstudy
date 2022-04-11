@@ -2,6 +2,8 @@ package jpabook.jpashop.service;
 
 import java.util.List;
 
+import jpabook.jpashop.controller.BookForm;
+import jpabook.jpashop.domain.item.Book;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,8 +28,14 @@ public class ItemService {
         return itemRepository.findAll();
     }
 
-    public Item findOnr(Long itemId){
+    public Item findOne(Long itemId){
         return itemRepository.findOne(itemId);
     }
-    
+
+    @Transactional
+    public void updateItem(Long itemId, BookForm form) {
+        Item findItem = itemRepository.findOne(itemId);
+        findItem.setName(form.getName());
+        findItem.setPrice(form.getPrice());
+    }
 }
