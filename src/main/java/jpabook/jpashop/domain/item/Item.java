@@ -12,6 +12,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 
+import jpabook.jpashop.domain.Category;
 import jpabook.jpashop.exception.NotEnoughStockException;
 import lombok.Getter;
 import lombok.Setter;
@@ -36,7 +37,6 @@ public abstract class Item {
     //==비니지스 로직==//
     /**
      * stock 증가
-     * @param quantity
      */
     public void addStock(int quantity){
         this.stockQuantity += quantity;
